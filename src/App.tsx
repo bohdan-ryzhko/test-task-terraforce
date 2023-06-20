@@ -1,11 +1,10 @@
 import { FC } from 'react';
+import { ShowList } from './components/ShowList/ShowList';
 
-const App:FC = () => {
+export const App: FC = () => {
   return (
     <div className="App">
-      <h1>App is Ready</h1>
+      <ShowList />
     </div>
   );
 }
-
-export default App;
