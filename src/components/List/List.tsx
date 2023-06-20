@@ -1,21 +1,26 @@
-import "./List.scss";
-import { FC } from "react";
-import { ICard } from "../../interfaces/ICard";
+import { FC, useEffect } from "react";
 import { Card } from "../Card/Card";
+import { AppDispatch } from "../../types/AppDispatch";
+import { useDispatch } from "react-redux";
+import { getList } from "../../redux/operations";
+import { useCustomState } from "../../hooks/useCustomState";
+import { SkeletonLoaderSchema } from "../SkeletonLoaderSchema/SkeletonLoaderSchema";
 
-interface ListProps {
-	list: ICard[],
-	isLoad: boolean,
-}
+export const List: FC = () => {
+	const dispatch: AppDispatch = useDispatch();
+	const { list, isLoad } = useCustomState();
 
-export const List: FC<ListProps> = ({ list, isLoad }) => {
+	useEffect(() => {
+		dispatch(getList());
+	}, [dispatch]);
+
 	return (
 		<>
 			{
 				isLoad
-					? <p>Loading...</p>
+					? <SkeletonLoaderSchema />
 					:
-					<ul className="list-inside flex">
+					<ul className="list-inside flex flex-wrap">
 						{
 							list.map(card =>
 								<li key={card.id}>
@@ -25,6 +30,7 @@ export const List: FC<ListProps> = ({ list, isLoad }) => {
 						}
 					</ul>
 			}
+			<SkeletonLoaderSchema />
 		</>
 	)
-};
+}
