@@ -33,3 +33,24 @@ export const createCard = createAsyncThunk<ICard, IFormInput>(
 		}
 	}
 );
+
+interface IRemoveCard {
+	data: [string, boolean],
+	id: number,
+}
+
+export const removeCard = createAsyncThunk<IRemoveCard, number>(
+	"list/removeCard",
+	async (cardId, { rejectWithValue }) => {
+		try {
+			const { data }: AxiosResponse<[string, boolean]> = await axios.delete(`https://yourtestapi.com/api/posts/${cardId}`);
+			return {
+				data,
+				id: cardId
+			};
+		} catch (error: any) {
+			toast.error(error?.message);
+			return rejectWithValue(error);
+		}
+	}
+);

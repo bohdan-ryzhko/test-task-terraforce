@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
-import { createCard, getList } from "./operations";
+import { createCard, getList, removeCard } from "./operations";
 import { fulfilledGetList, pendingGetList, rejectedGetList } from "./handlers";
 
 const listSlice = createSlice({
@@ -22,6 +22,20 @@ const listSlice = createSlice({
 			})
 			.addCase(createCard.rejected, (state, action) => {
 				state.isLoadCreared = false;
+				state.error = action.payload;
+			})
+			.addCase(removeCard.pending, state => {
+				state.isLoadRemoved = true;
+			})
+			.addCase(removeCard.fulfilled, (state, action) => {
+				state.isLoadRemoved = false;
+				state.error = null;
+				console.log(action.payload);
+				const findRemovedCardIndex = state.items.findIndex(card => card.id === action.payload.id);
+				state.items.splice(findRemovedCardIndex, 1)
+			})
+			.addCase(removeCard.rejected, (state, action) => {
+				state.isLoadRemoved = false;
 				state.error = action.payload;
 			})
 	}

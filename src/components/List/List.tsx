@@ -23,7 +23,9 @@ export const List: FC = () => {
 					<ul className="list-inside flex flex-wrap">
 						{
 							list.map(card =>
-								<li key={card.id}>
+								<li
+									className="relative"
+									key={card.id}>
 									<Card card={card} />
 								</li>
 							)
