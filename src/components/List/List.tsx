@@ -1,3 +1,4 @@
+import "./List.scss";
 import { FC } from "react";
 import { ICard } from "../../interfaces/ICard";
 import { Card } from "../Card/Card";
@@ -14,7 +15,7 @@ export const List: FC<ListProps> = ({ list, isLoad }) => {
 				isLoad
 					? <p>Loading...</p>
 					:
-					<ul>
+					<ul className="list-inside flex">
 						{
 							list.map(card =>
 								<li key={card.id}>

@@ -11,7 +11,7 @@ export const Card: FC<CardProps> = ({ card: { title, text, image, url } }) => {
 		<>
 			<div className="cardImage">
 				<img
-					height={100}
+					width={200}
 					src={checkImageUrl(image)}
 					alt={title} />
 			</div>
