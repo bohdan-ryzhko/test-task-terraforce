@@ -4,6 +4,7 @@ import { IFormInput } from "../interfaces/IFormInput";
 import { IInitialState } from "../interfaces/IInitialState";
 import { toast } from "react-toastify";
 import axios, { AxiosResponse } from "axios";
+import { IRemoveCard } from "../interfaces/IRemoveCard";
 
 axios.defaults.baseURL = "https://yourtestapi.com/api/posts/";
 
@@ -36,11 +37,6 @@ export const createCard = createAsyncThunk<ICard, IFormInput>(
 		}
 	}
 );
-
-interface IRemoveCard {
-	data: [string, boolean],
-	id: number,
-}
 
 export const removeCard = createAsyncThunk<IRemoveCard, number>(
 	"list/removeCard",

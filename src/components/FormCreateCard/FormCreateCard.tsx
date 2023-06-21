@@ -11,7 +11,7 @@ import { SubmitButton } from "../SubmitButton/SubmitButton";
 export const FormCreateCard: FC = () => {
 	const { register, reset, handleSubmit, formState: { errors } } = useForm<IFormInput>();
 	const dispatch: AppDispatch = useDispatch();
-	const { isLoadCreared } = useCustomState();
+	const { isLoadCreated } = useCustomState();
 
 	const onSubmit: SubmitHandler<IFormInput> = (data) => {
 		dispatch(createCard(data))
@@ -52,7 +52,7 @@ export const FormCreateCard: FC = () => {
 				error={errors.url}
 			/>
 
-			<SubmitButton text="Create Card" isLoad={isLoadCreared} />
+			<SubmitButton text="Create Card" isLoad={isLoadCreated} />
 		</form>
 	)
 }

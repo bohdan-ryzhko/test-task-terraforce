@@ -16,7 +16,7 @@ interface FormUpdateCardProps {
 export const FormUpdateCard: FC<FormUpdateCardProps> = ({ updatedIndex }) => {
 	const { control, handleSubmit, formState: { errors } } = useForm<IFormInput>();
 	const dispatch: AppDispatch = useDispatch();
-	const { isLoadCreared, list } = useCustomState();
+	const { isLoadCreated, list } = useCustomState();
 
 	const updatedCard = list.find(card => card.id === updatedIndex);
 
@@ -58,7 +58,7 @@ export const FormUpdateCard: FC<FormUpdateCardProps> = ({ updatedIndex }) => {
 				error={errors.url}
 			/>
 
-			<SubmitButton text="Update Card" isLoad={isLoadCreared} />
+			<SubmitButton text="Update Card" isLoad={isLoadCreated} />
 		</form>
 	)
 }
