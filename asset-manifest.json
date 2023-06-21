@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/test-task-terraforce/static/css/main.95c5c7ea.css",
-    "main.js": "/test-task-terraforce/static/js/main.ad6fdd8d.js",
+    "main.js": "/test-task-terraforce/static/js/main.8949f5b1.js",
     "static/js/787.064960ed.chunk.js": "/test-task-terraforce/static/js/787.064960ed.chunk.js",
     "index.html": "/test-task-terraforce/index.html",
     "main.95c5c7ea.css.map": "/test-task-terraforce/static/css/main.95c5c7ea.css.map",
-    "main.ad6fdd8d.js.map": "/test-task-terraforce/static/js/main.ad6fdd8d.js.map",
+    "main.8949f5b1.js.map": "/test-task-terraforce/static/js/main.8949f5b1.js.map",
     "787.064960ed.chunk.js.map": "/test-task-terraforce/static/js/787.064960ed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95c5c7ea.css",
-    "static/js/main.ad6fdd8d.js"
+    "static/js/main.8949f5b1.js"
   ]
 }
