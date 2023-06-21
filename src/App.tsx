@@ -14,7 +14,7 @@ export const App: FC = () => {
   const [updatedIndex, setUpdatedIndex] = useState<number>(0);
 
   useEffect(() => {
-    if (isOpenModal) {
+    if (isOpenModalUpdate || isOpenModal) {
       addNoScroll()
     } else {
       removeNoScroll()
@@ -23,7 +23,7 @@ export const App: FC = () => {
     return () => {
       removeNoScroll();
     }
-  }, [isOpenModal]);
+  }, [isOpenModal, isOpenModalUpdate]);
 
   return (
     <>
