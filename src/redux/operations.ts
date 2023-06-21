@@ -69,6 +69,7 @@ export const updateCard = createAsyncThunk<ICard, IUpdatedData>(
 				`${updatedData.id}`,
 				updatedData
 			);
+			toast.success(`${data.title} update success!`);
 			return data;
 		} catch (error) {
 			toast.error("Updated Error");

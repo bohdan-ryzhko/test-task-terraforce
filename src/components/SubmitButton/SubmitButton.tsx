@@ -9,7 +9,7 @@ interface SubmitButtonProps {
 export const SubmitButton: FC<SubmitButtonProps> = ({ text, isLoad }) => {
 	return (
 		<button
-			className="p-2 text-white h-12 rounded-md bg-red-500 hover:bg-red-700 transition-all duration-300 ease-in-out"
+			className="flex justify-center items-center p-2 text-white h-12 rounded-md bg-red-500 hover:bg-red-700 transition-all duration-300 ease-in-out"
 			type="submit"
 		>
 			{
