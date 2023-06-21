@@ -6,21 +6,23 @@ import { AppDispatch } from "../../types/AppDispatch";
 import { useDispatch } from "react-redux";
 import { createCard } from "../../redux/operations";
 import { useCustomState } from "../../hooks/useCustomState";
-import { LoaderButton } from "../LoaderButton/LoaderButton";
+import { SubmitButton } from "../SubmitButton/SubmitButton";
 
 export const FormCreateCard: FC = () => {
-	const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
+	const { register, reset, handleSubmit, formState: { errors } } = useForm<IFormInput>();
 	const dispatch: AppDispatch = useDispatch();
 	const { isLoadCreared } = useCustomState();
 
 	const onSubmit: SubmitHandler<IFormInput> = (data) => {
 		dispatch(createCard(data))
+		reset();
 	};
 
 	return (
 		<form
 			className="flex flex-col gap-7 w-full"
-			onSubmit={handleSubmit(onSubmit)}>
+			onSubmit={handleSubmit(onSubmit)}
+		>
 			<Input
 				id="title"
 				placeholder="Title"
@@ -50,15 +52,7 @@ export const FormCreateCard: FC = () => {
 				error={errors.url}
 			/>
 
-			<button
-				className="p-2 text-white h-12 rounded-md bg-red-500 hover:bg-red-700 transition-all duration-300 ease-in-out"
-				type="submit">
-				{
-					isLoadCreared
-						? <LoaderButton />
-						: <span>Create Card</span>
-				}
-			</button>
+			<SubmitButton text="Create Card" isLoad={isLoadCreared} />
 		</form>
 	)
 }

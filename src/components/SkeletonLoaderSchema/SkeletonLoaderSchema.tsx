@@ -1,31 +1,34 @@
+import sass from "./SkeletonLoaderSchema.module.scss";
 import { FC } from "react";
 import SkeletonLoader from "tiny-skeleton-loader-react";
 
+const style = { width: "100%" };
+
 export const SkeletonLoaderSchema: FC = () => (
-	<ul className="flex flex-wrap">
-		<li className="">
-			<SkeletonLoader block width={200} height={100} />
-			<SkeletonLoader block width={85} height={15} />
+	<ul className={sass.skeletonList}>
+		<li className={sass.skeletonItem}>
+			<SkeletonLoader block style={style} height={160} />
+			<SkeletonLoader block style={style} height={15} />
 		</li>
-		<li className="">
-			<SkeletonLoader block width={200} height={100} />
-			<SkeletonLoader block width={85} height={15} />
+		<li className={sass.skeletonItem}>
+			<SkeletonLoader block style={style} height={160} />
+			<SkeletonLoader block style={style} height={15} />
 		</li>
-		<li className="">
-			<SkeletonLoader block width={200} height={100} />
-			<SkeletonLoader block width={85} height={15} />
+		<li className={sass.skeletonItem}>
+			<SkeletonLoader block style={style} height={160} />
+			<SkeletonLoader block style={style} height={15} />
 		</li>
-		<li className="">
-			<SkeletonLoader block width={200} height={100} />
-			<SkeletonLoader block width={85} height={15} />
+		<li className={sass.skeletonItem}>
+			<SkeletonLoader block style={style} height={160} />
+			<SkeletonLoader block style={style} height={15} />
 		</li>
-		<li className="">
-			<SkeletonLoader block width={200} height={100} />
-			<SkeletonLoader block width={85} height={15} />
+		<li className={sass.skeletonItem}>
+			<SkeletonLoader block style={style} height={160} />
+			<SkeletonLoader block style={style} height={15} />
 		</li>
-		<li className="">
-			<SkeletonLoader block width={200} height={100} />
-			<SkeletonLoader block width={85} height={15} />
+		<li className={sass.skeletonItem}>
+			<SkeletonLoader block style={style} height={160} />
+			<SkeletonLoader block style={style} height={15} />
 		</li>
 	</ul>
 );

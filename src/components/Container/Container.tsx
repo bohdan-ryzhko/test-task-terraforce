@@ -5,5 +5,5 @@ interface ContainerProps {
 }
 
 export const Container: FC<ContainerProps> = ({ children }) => (
-	<div className="max-w-screen-xl mx-auto px-5 relative h-full">{children}</div>
+	<div className="max-w-screen-xl mx-auto px-5 relative min-h-full">{children}</div>
 );

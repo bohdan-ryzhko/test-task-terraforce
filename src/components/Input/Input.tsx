@@ -8,9 +8,11 @@ type InputProps = {
 	placeholder: string,
 	required: boolean;
 	error: FieldError | undefined,
+	value?: string,
 };
 
-export const Input: FC<InputProps> = ({ id, placeholder, register, required, error }) => (
+export const Input: FC<InputProps> = ({ id, placeholder, register, required, error, value }) => {
+	return (
 	<>
 		<label
 			className="relative"
@@ -18,6 +20,7 @@ export const Input: FC<InputProps> = ({ id, placeholder, register, required, err
 			<input
 				className="border border-black rounded-md w-full p-2"
 				type="text"
+				value={value}
 				placeholder={placeholder}
 				{...register(id, { required })} />
 			{
@@ -29,4 +32,5 @@ export const Input: FC<InputProps> = ({ id, placeholder, register, required, err
 			}
 		</label>
 	</>
-)
+	)
+}

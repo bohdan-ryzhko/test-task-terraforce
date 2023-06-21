@@ -1,3 +1,4 @@
+import sass from "./List.module.scss";
 import { FC, useEffect } from "react";
 import { Card } from "../Card/Card";
 import { AppDispatch } from "../../types/AppDispatch";
@@ -6,7 +7,12 @@ import { getList } from "../../redux/operations";
 import { useCustomState } from "../../hooks/useCustomState";
 import { SkeletonLoaderSchema } from "../SkeletonLoaderSchema/SkeletonLoaderSchema";
 
-export const List: FC = () => {
+interface ListCardProps {
+	setIsOpenModal: (isOpen: boolean) => void;
+	setUpdatedIndex: (cardId: number) => void;
+}
+
+export const List: FC<ListCardProps> = ({ setIsOpenModal, setUpdatedIndex }) => {
 	const dispatch: AppDispatch = useDispatch();
 	const { list, isLoad } = useCustomState();
 
@@ -20,19 +26,22 @@ export const List: FC = () => {
 				isLoad
 					? <SkeletonLoaderSchema />
 					:
-					<ul className="list-inside flex flex-wrap">
+					<ul className={sass.cardList}>
 						{
 							list.map(card =>
 								<li
-									className="relative"
+									className={`${sass.card} relative`}
 									key={card.id}>
-									<Card card={card} />
+									<Card
+										card={card}
+										setIsOpenModal={setIsOpenModal}
+										setUpdatedIndex={setUpdatedIndex}
+									/>
 								</li>
 							)
 						}
 					</ul>
 			}
-			<SkeletonLoaderSchema />
 		</>
 	)
 }

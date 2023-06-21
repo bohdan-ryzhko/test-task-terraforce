@@ -1,6 +1,6 @@
-const isCorrectUrl = (url: string | null): boolean => url !== null && url !== "null";
+const isCorrectUrl = (url: string | null | undefined): boolean => url !== null && url !== "null";
 
-export const checkImageUrl = (image: string | null): string => {
+export const checkImageUrl = (image: string | null | undefined): string => {
 	return isCorrectUrl(image) ? image! : "https://placehold.co/200x100";
 }
 
