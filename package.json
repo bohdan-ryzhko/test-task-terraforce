@@ -1,5 +1,6 @@
 {
   "name": "test-task-terraforce",
+  "homepage": "https://bohdan-ryzhko.github.io/test-task-terraforce/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

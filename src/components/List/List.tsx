@@ -1,4 +1,3 @@
-import sass from "./List.module.scss";
 import { FC, useEffect } from "react";
 import { Card } from "../Card/Card";
 import { AppDispatch } from "../../types/AppDispatch";
@@ -26,11 +25,11 @@ export const List: FC<ListCardProps> = ({ setIsOpenModal, setUpdatedIndex }) => 
 				isLoad
 					? <SkeletonLoaderSchema />
 					:
-					<ul className={sass.cardList}>
+					<ul className="flex flex-wrap items-center gap-7 max-w-350 mx-auto sm:max-w-590 lg:max-w-900">
 						{
 							list.map(card =>
 								<li
-									className={`${sass.card} relative`}
+									className={"basis-full self-start sm:basis-[calc(100%/2-15px)] lg:basis-[calc(100%/3-20px)] relative"}
 									key={card.id}>
 									<Card
 										card={card}
